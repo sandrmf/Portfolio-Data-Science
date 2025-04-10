@@ -1,5 +1,3 @@
-# Portfólio de Data Science  
-
 # 🎯 Portfólio de Data Science
 
 Bem-vindo ao meu portfólio de Data Science!  
@@ -12,7 +10,8 @@ Atualmente, estudo Data Science na FIAP e desenvolvo projetos para aprimorar min
 
 Aqui estão alguns dos projetos que desenvolvi:
 
-### 📊 [Nome do Projeto 1]
+### 📊 Projeto 1: Detecção de Fraudes em Transações Financeiras
+Objetivo: Criar um modelo de Machine Learning para identificar transações suspeitas de fraude.
 - **Descrição:** Breve explicação sobre o projeto e o problema resolvido.
 - **Tecnologias utilizadas:** Python, Pandas, Matplotlib...
 - [🔗 Link para o projeto](#)
