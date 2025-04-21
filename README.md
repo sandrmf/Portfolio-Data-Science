@@ -31,16 +31,16 @@ Objetivo: Criar um modelo de Machine Learning para identificar transações susp
 2. **Pré-processamento**
    - Normalização
    - Separação em treino e teste
-3. **Balanceamento com SMOTE**
-4. **Modelagem**
+3. **Modelagem**
    - K-Nearest Neighbors (KNN)
    - Árvore de Decisão
-5. **Avaliação**
+4. **Avaliação**
    - Matriz de Confusão
    - Precision, Recall, F1-Score e Acurácia
-6. **Visualização**
+5. **Visualização**
    - Gráfico de acurácia por valor de K
    - Visualização da árvore de decisão
+6. **Balanceamento com SMOTE**
 
 ---
 
