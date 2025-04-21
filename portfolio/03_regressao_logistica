@@ -1,0 +1,71 @@
+# 1 - PREPARAÇÃO DOS DADOS
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Lê a amostra balanceada
+df = pd.read_csv('C:/Users/User/Documents/Portfolio/amostra_balanceada.csv')
+
+# Separa as features (X) e o target (y)
+X = df.drop('Class', axis=1)
+y = df['Class']
+
+# Divide os dados em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42, stratify=y)
+
+# Escala os dados
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+2 - Gerando o Gráfico
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Configurações visuais
+sns.set(style="whitegrid")
+fig, axs = plt.subplots(1, 2, figsize=(12, 5))
+
+# Gráfico do conjunto de treino
+sns.countplot(x=y_train, hue=y_train, ax=axs[0], palette="Blues", legend=False)
+axs[0].set_title("Distribuição das Classes - Treino")
+axs[0].set_xlabel("Classe (0 = normal, 1 = fraude)")
+axs[0].set_ylabel("Quantidade")
+
+# Gráfico do conjunto de teste
+sns.countplot(x=y_test, hue=y_test, ax=axs[1], palette="Greens", legend=False)
+axs[1].set_title("Distribuição das Classes - Teste")
+axs[1].set_xlabel("Classe (0 = normal, 1 = fraude)")
+axs[1].set_ylabel("Quantidade")
+
+plt.tight_layout()
+plt.show()
+
+3 - Regressão Logística
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# 1. Criar o modelo
+modelo = LogisticRegression()
+
+# 2. Treinar o modelo com os dados de treino
+modelo.fit(X_train_scaled, y_train)
+
+# 3. Fazer previsões no conjunto de teste
+y_pred = modelo.predict(X_test_scaled)
+
+# 4. Avaliar o desempenho do modelo
+print("Matriz de Confusão:")
+print(confusion_matrix(y_test, y_pred))
+
+print("\nRelatório de Classificação:")
+print(classification_report(y_test, y_pred))
+
+print("\nAcurácia:")
+print(accuracy_score(y_test, y_pred))
+
+
